@@ -2,158 +2,101 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Accueil | Smile Surprises by Clau</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smiles Surprise by Clau</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
-  <style>
-   body {
-  background-image: url('../img/wasp.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  color: white; /* ou noir selon le contraste */
-}
-
-    nav {
-      background-color: #ff4f6d;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      background: linear-gradient(135deg, #ffccd5, #ffe6ea);
-      padding: 40px 20px;
-      border-radius: 0 0 20px 20px;
-      margin-bottom: 30px;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 0 20px;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .video {
-      text-align: center;
-      margin: 40px 20px;
-    }
-
-    .video iframe {
-      width: 100%;
-      max-width: 560px;
-      height: 315px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .cta a {
-      background-color: #ff4f6d;
-      color: white;
-      padding: 15px 25px;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .cta a:hover {
-      background-color: #ff2e4d;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #ffe6ea;
-      margin-top: 40px;
-    }
-  </style>
 </head>
-<script src="script.js" defer></script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("lZn6ZV-eb5vXhzx43"); // Remplace par ton User ID EmailJS
+  })();
+</script>
 <body>
-  <nav>
-    <div><strong>Smile Surprises</strong></div>
+<nav>
+    <div><strong>Smiles Surprise</strong></div>
     <div>
-      <a href="home.html">Accueil</a>
-      <a href="index.html">Commander</a>
+      <a href="./home.html">Commander</a>
+      <a href="index.html">Acceuil</a>
     </div>
   </nav>
-<div class="background-overlay"></div>
+  <div class="background-overlay"></div>
   <div class="content">
-  <header class="hero">
-    <h1>Bienvenue chez Smile Surprises by Clau</h1>
-    <h3>Au delà d'un sourire, nous donnons vie à vos émotions !!! 🎁✨</h3>
-  </header>
+<header>
+  <h1>Smiles Surprise by Clau</h1>
+  <h3>Au delà d'un sourire, nous donnons vie à vos émotions !!!</h3>
+</header>
 
-  <main>
-    <section>
-      <h2 style="text-align:center;">Quelques exemples de nos surprises</h2>
-      <div class="gallery">
-        <img src="../img/20220510183502jpg_6294e1cd7c761.jpg" alt="Panier cadeau">
-        <img src="../img/141450.jpg" alt="Bouquet d'argent">
-        <img src="../img/panier-cadeau-sucre-noel-emballe_1024x1024@2x.webp" alt="Surprise party">
-        <img src="../img/bouquet.jpg" alt="Fleurs et cadeau">
-        <img src="../img/wasp.jpeg" alt="Autres">
-        <img src="../img/wasp2.jpeg" alt="Autres">
-      </div>
-    </section>
+<section class="theme">
+  <label for="season">Choisissez un thème :</label>
+  <select id="season" onchange="changeTheme()">
+    <option value="default">Classique</option>
+    <option value="valentin">Saint-Valentin</option>
+    <option value="noel">Noël</option>
+    <option value="Anniverssaire">Anniverssaire</option>
+    <option value="Promotion">Promotion</option>
+  </select>
+</section>
 
-    <section class="video">
-      <p>
-  🎁 Vous voulez voir nos surprises en action ? Cliquez sur le lien ci-dessous pour découvrir nos vidéos de livraisons et d’émotions partagées 💕
-</p>
-<p>
-  👉 <a href="https://m.facebook.com/sourireaupluriel/" target="_blank" style="color: #e84393; font-weight: bold;">
-    Voir les vidéos sur notre page Facebook
-  </a>
-</p>
+<section class="panier">
+  <h2>Composez votre panier</h2>
+  <form id="giftForm">
+    <fieldset>
+      <legend>Fruits</legend>
+      <label><input type="checkbox" name="item" value="Pommes" data-price="500"> Pommes</label><br>
+      <label><input type="checkbox" name="item" value="Raisins" data-price="700"> Raisins</label><br>
+      <label><input type="checkbox" name="item" value="Parfum" data-price="2000"> Parfum</label><br>
+      <label><input type="checkbox" name="item" value="Friandises" data-price="1500"> Friandises</label>
+    </fieldset>
+    <fieldset>
+        <!-- Champ de personnalisation libre -->
+      <legend>Autres</legend>
+      <label for="autreFruit">🍍 Autre (personnaliser mon propre panier) :</label><br>
+<input type="text" id="autreFruit" name="autreFruit" placeholder="Ex: mangues, fraises..." style="width: 100%; margin-top: 5px;"><br><br>
+    </fieldset>
 
-    </section>
 
-    <section class="cta">
-      <h2>Prêt(e) à créer votre propre surprise ?</h2>
-      <a href="index.html">Préparer ma commande</a>
-    </section>
-  </main>
+    <fieldset>
+      <legend>Billets CFA</legend>
+      <label><input type="checkbox" name="money" value="500" data-price="500"> 500 F CFA</label><br>
+      <label><input type="checkbox" name="money" value="1000" data-price="1000"> 1000 F CFA</label><br>
+      <label><input type="checkbox" name="money" value="2000" data-price="2000"> 2000 F CFA</label><br>
+      <label><input type="checkbox" name="money" value="5000" data-price="5000"> 5000 F CFA</label><br>
+      <label><input type="checkbox" name="money" value="10000" data-price="10000"> 10000 F CFA</label>
+    </fieldset>
+    <fieldset>
+  <legend>Montant total des billets CFA</legend>
+  <label for="customMoney">Montant total (en F CFA) :</label>
+  <input type="number" id="customMoney" name="customMoney" value="0" min="0" step="500" onchange="updateTotal()" />
+</fieldset>
+    
+  </form>
+</section>
 
-  <footer>
-  <h3>Suivez-nous</h3>
+<section class="contact">
+  <h2>Contactez-nous</h2>
+  <form id="contactForm">
+    <input type="text" name="name" placeholder="Votre nom" required><br>
+    <input type="email" name="email" placeholder="Votre email"><br>
+    <textarea name="message" placeholder="Votre message" required></textarea><br>
+    <label><input type="radio" name="method" value="email" checked> Email</label>
+    <label><input type="radio" name="method" value="whatsapp"> WhatsApp</label><br>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
+<footer>
+<h3>Suivez-nous</h3>
   <ul class="social-icons">
-    <li><a href="https://www.tiktok.com/@ton_nom" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
+    <li><a href="https://www.tiktok.com/@smilesurprisesbyclau?_t=ZN-8x4KA5C9t3e&_r=1" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a></li>
     <li><a href="https://m.facebook.com/sourireaupluriel/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
     <li><a href="" target="_blank"><i class="fab fa-instagram"></i> contact : +237 691-820-931</a></li>
   </ul>
-    <p>&copy; 2025 Smile Surprises by Clau</p>
-  </footer>
-  </div>
+  <p>© 2025 Smiles Surprise by Clau – Créatrice d’émotions</p>
+</footer>
+</div>
+<script src="script.js"></script>
 </body>
 </html>

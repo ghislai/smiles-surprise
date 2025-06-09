@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-const images = ["../img/wasp.jpeg", "../img/wasp2.jpeg"]; // noms exacts des images
+const images = ["./wasp.jpeg", "./wasp2.jpeg"]; // noms exacts des images
 let current = 0;
 
 function changeBackground() {
