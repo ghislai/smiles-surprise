@@ -45,39 +45,39 @@
   <form id="giftForm">
     <fieldset>
       <legend>Fruits</legend>
-      <label><input type="checkbox" name="item" value="Pommes" data-price="500"> Pommes</label><br>
-      <label><input type="checkbox" name="item" value="Raisins" data-price="700"> Raisins</label><br>
-      <label><input type="checkbox" name="item" value="Parfum" data-price="2000"> Parfum</label><br>
-      <label><input type="checkbox" name="item" value="Friandises" data-price="1500"> Friandises</label>
+      <label><input type="checkbox" name="items[]" value="Pommes" data-price="500"> Pommes</label><br>
+      <label><input type="checkbox" name="items[]" value="Raisins" data-price="700"> Raisins</label><br>
+      <label><input type="checkbox" name="items[]" value="Parfum" data-price="2000"> Parfum</label><br>
+      <label><input type="checkbox" name="items[]" value="Friandises" data-price="1500"> Friandises</label>
     </fieldset>
     <fieldset>
         <!-- Champ de personnalisation libre -->
       <legend>Autres</legend>
       <label for="autreFruit">🍍 Autre (personnaliser mon propre panier) :</label><br>
-<input type="text" id="autreFruit" name="autreFruit" placeholder="Ex: mangues, fraises..." style="width: 100%; margin-top: 5px;"><br><br>
+<input type="text" id="autreFruit" name="customItems" placeholder="Ex: mangues, fraises..." style="width: 100%; margin-top: 5px;"><br><br>
     </fieldset>
-
-
     <fieldset>
       <legend>Billets CFA</legend>
-      <label><input type="checkbox" name="money" value="500" data-price="500"> 500 F CFA</label><br>
-      <label><input type="checkbox" name="money" value="1000" data-price="1000"> 1000 F CFA</label><br>
-      <label><input type="checkbox" name="money" value="2000" data-price="2000"> 2000 F CFA</label><br>
-      <label><input type="checkbox" name="money" value="5000" data-price="5000"> 5000 F CFA</label><br>
-      <label><input type="checkbox" name="money" value="10000" data-price="10000"> 10000 F CFA</label>
+      <label><input type="checkbox" name="money[]" value="500" data-price="500"> 500 F CFA</label><br>
+      <label><input type="checkbox" name="money[]" value="1000" data-price="1000"> 1000 F CFA</label><br>
+      <label><input type="checkbox" name="money[]" value="2000" data-price="2000"> 2000 F CFA</label><br>
+      <label><input type="checkbox" name="money[]" value="5000" data-price="5000"> 5000 F CFA</label><br>
+      <label><input type="checkbox" name="money[]" value="10000" data-price="10000"> 10000 F CFA</label>
     </fieldset>
     <fieldset>
   <legend>Montant total des billets CFA</legend>
   <label for="customMoney">Montant total (en F CFA) :</label>
-  <input type="number" id="customMoney" name="customMoney" value="0" min="0" step="500" onchange="updateTotal()" />
+  <input type="number" id="customMoney" name="totalMoney" value="0" min="0" step="500" onchange="updateTotal()" />
 </fieldset>
+    <p>Total de la commande : <strong id="total">0</strong> FCFA</p>
+    <button type="submit">Envoyer ma commande</button>
     
-  </form>
+  <!-- </form> -->
 </section>
 
 <section class="contact">
   <h2>Contactez-nous</h2>
-  <form id="contactForm">
+  <!-- <form id="contactForm"> -->
     <input type="text" name="name" placeholder="Votre nom" required><br>
     <input type="email" name="email" placeholder="Votre email"><br>
     <textarea name="message" placeholder="Votre message" required></textarea><br>

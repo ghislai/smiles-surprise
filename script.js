@@ -30,7 +30,7 @@ if (moneyInput) {
 }
 
 // Gestion du formulaire de contact
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+/*document.getElementById('contactForm').addEventListener('submit', function(e) {
   e.preventDefault();
   const method = document.querySelector('input[name="method"]:checked').value;
 
@@ -49,6 +49,48 @@ document.getElementById('contactForm').addEventListener('submit', function(e) {
         alert("Erreur lors de l'envoi : " + error.text);
       });
   }
+});*/
+
+
+document.getElementById('giftForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const selectedItems = Array.from(document.querySelectorAll('input[name="items[]"]:checked'))
+    .map(input => input.value).join(', ');
+
+  const customItems = document.getElementById('autreFruit').value;
+
+  const selectedMoney = Array.from(document.querySelectorAll('input[name="money[]"]:checked'))
+    .map(input => input.value).join(', ');
+
+  const totalMoney = document.getElementById('customMoney').value;
+
+  // Envoi WhatsApp OU EmailJS
+  const method = document.querySelector('input[name="method"]:checked');
+  if (method && method.value === 'whatsapp') {
+    const message = `Bonjour ! Voici ma commande :
+- Articles : ${selectedItems}
+- Personnalisation : ${customItems}
+- Billets choisis : ${selectedMoney}
+- Montant total : ${totalMoney} FCFA`;
+
+    const phone = "237689478869"; // sans le +
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+    return;
+  }
+
+  // Envoi EmailJS
+  const templateParams = {
+    items: selectedItems,
+    custom_items: customItems,
+    money: selectedMoney,
+    total_money: totalMoney
+  };
+
+  emailjs.send('service_n6knin4', 'template_2j1e8ng', templateParams)
+    .then(() => alert("Commande envoyée avec succès !"))
+    .catch((error) => alert("Erreur : " + error.text));
 });
 
 
