@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Commander un panier | Smiles Surprise</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <h1>Choisissez votre panier</h1>
+  <form id="orderForm">
+    <label>
+      Article :
+      <select name="article">
+        <option value="Pommes">Pommes</option>
+        <option value="Raisins">Raisins</option>
+        <option value="Parfum">Parfum</option>
+        <option value="Friandises">Friandises</option>
+      </select>
+    </label><br><br>
+    
+    <label>
+      Montant total des billets (en FCFA) :
+      <input type="number" name="billets" min="0" step="500">
+    </label><br><br>
+    
+    <button type="submit">Valider</button>
+  </form>
+</body>
+</html>
